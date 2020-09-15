@@ -7,8 +7,7 @@ class App extends React.Component{
 		selectedCharacter: null,
 		loading: false,
 		books: [],
-		term: "",
-		newArr: []
+		term: ""
 	}
 
 	componentDidMount(){
@@ -33,15 +32,8 @@ class App extends React.Component{
 		})
 	}
 
-	handleSubmit = async (e) => {
-		this.setState({term: e.target.value})
-		const regexTerm = new RegExp(this.state.term, 'gi')
-		await this.setState({newArr: this.state.characterList.filter(item => item.name.match(regexTerm))})
-		console.log(this.state.newArr, this.state.term)
-	}
-
-	renderList = () => {
-		if (this.state.characterList.length === 0){
+	renderList = (arr) => {
+		if (arr.length === 0){
 			return <div>Loading...</div>
 		}
 		else {
@@ -49,15 +41,19 @@ class App extends React.Component{
 				<div>
 					<div>
 						<form onSubmit={this.handleSubmit}>
-							<input type="text" value={this.state.term} onChange={this.handleSubmit} />
+							<input className="searchBox" type="text"  placeholder="search for character" onChange={(e) => this.setState({term: e.target.value})} />
 						</form>
 					</div>
 					<div>
-						{this.state.characterList.map((item, index) => {
+						{arr.filter(item => item.name.toLowerCase().includes(this.state.term.toLowerCase()))
+						.map((item, index) => {
 						return (
 							<div className="characterCard" key={index} onClick={() => this.handleClick(item.url)}>
-							<p className="characterName">{item.name ? item.name: "------"}</p>
-							<p className="characterAlias">{item.aliases[0] ? item.aliases[0]: "------"}</p>
+								<div>
+									<p className="characterName">{item.name ? item.name: "------"}</p>
+									<p className="characterAlias">{item.aliases[0] ? item.aliases[0]: "------"}</p>
+								</div>
+								<div>bookmarked</div>
 							</div>
 						)})}
 					</div>
@@ -65,30 +61,6 @@ class App extends React.Component{
 			)
 	}}
 
-	renderSearch = () => {
-		if (this.state.newArr.length === 0){
-			return <div>Loading...</div>
-		}
-		else {
-			return (
-				<div>
-					<div>
-						<form onSubmit={this.handleSubmit}>
-							<input type="text" value={this.state.term} onChange={this.handleSubmit} />
-						</form>
-					</div>
-					<div>
-						{this.state.newArr.map((item, index) => {
-						return (
-							<div className="characterCard" key={index} onClick={() => this.handleClick(item.url)}>
-							<p className="characterName">{item.name ? item.name: "------"}</p>
-							<p className="characterAlias">{item.aliases[0] ? item.aliases[0]: "------"}</p>
-							</div>
-						)})}
-					</div>
-				</div>
-			)
-	}}
 
 	renderBooks = () => {
 		if (this.state.books.length > 0){
@@ -125,7 +97,7 @@ class App extends React.Component{
 	render(){
 		return(			
 			<div className="App">
-				<div className="list">{this.state.newArr.length <= 0 ? this.renderList() : this.renderSearch()}</div>
+				<div className="list">{this.renderList(this.state.characterList)}</div>
 				<div className="data">{this.renderCharacterDetail()}</div>
 			</div>
 		)

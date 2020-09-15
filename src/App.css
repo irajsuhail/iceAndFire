@@ -16,6 +16,14 @@ body {
 	grid-template-columns: 500px 1fr;
 }
 
+.searchBox {
+	width: 100%;
+	padding: 10px;
+	border-radius: 10px;
+	margin-bottom: 20px;
+	outline: none;
+}
+
 .list {
 	padding: 20px;
 	height: 100vh;
