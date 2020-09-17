@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/iceAndFire/static/css/main.62dc3ad4.chunk.css",
+    "main.js": "/iceAndFire/static/js/main.e2601cb4.chunk.js",
+    "main.js.map": "/iceAndFire/static/js/main.e2601cb4.chunk.js.map",
+    "runtime-main.js": "/iceAndFire/static/js/runtime-main.1b5a466f.js",
+    "runtime-main.js.map": "/iceAndFire/static/js/runtime-main.1b5a466f.js.map",
+    "static/js/2.150ba076.chunk.js": "/iceAndFire/static/js/2.150ba076.chunk.js",
+    "static/js/2.150ba076.chunk.js.map": "/iceAndFire/static/js/2.150ba076.chunk.js.map",
+    "index.html": "/iceAndFire/index.html",
+    "precache-manifest.414bbcbc4b619eb768ae32accf4a3bab.js": "/iceAndFire/precache-manifest.414bbcbc4b619eb768ae32accf4a3bab.js",
+    "service-worker.js": "/iceAndFire/service-worker.js",
+    "static/css/main.62dc3ad4.chunk.css.map": "/iceAndFire/static/css/main.62dc3ad4.chunk.css.map",
+    "static/js/2.150ba076.chunk.js.LICENSE.txt": "/iceAndFire/static/js/2.150ba076.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1b5a466f.js",
+    "static/js/2.150ba076.chunk.js",
+    "static/css/main.62dc3ad4.chunk.css",
+    "static/js/main.e2601cb4.chunk.js"
+  ]
+}
